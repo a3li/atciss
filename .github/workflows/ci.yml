@@ -42,5 +42,5 @@ jobs:
       - name: Run `nix build .#image`
         run: 'nix build .#image'
       - name: Upload docker image
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: skopeo copy --insecure-policy docker-archive://$(readlink -f ./result) docker://ghcr.io/$CI_PROJECT_PATH/atciss:$GITHUB_SHA
